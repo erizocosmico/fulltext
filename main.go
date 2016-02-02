@@ -10,5 +10,5 @@ import (
 
 func main() {
 	text := strings.Join(os.Args[1:], " ")
-	fmt.Printf("%s\n", width.Widen.String(text))
+	fmt.Println(width.Widen.String(text))
 }
