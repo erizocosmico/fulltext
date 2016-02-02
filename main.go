@@ -4,20 +4,11 @@ import (
 	"fmt"
 	"os"
 	"strings"
+	
+	"golang.org/x/text/width"
 )
 
 func main() {
 	text := strings.Join(os.Args[1:], " ")
-
-	for _, c := range text {
-		if c == 0x20 {
-			fmt.Printf("%c", 0x3000)
-		} else if c >= 0x21 && c <= 0x7E {
-			fmt.Printf("%c", c+0xFEE0)
-		} else {
-			fmt.Printf("%c", c)
-		}
-	}
-
-	fmt.Println()
+	fmt.Printf("%s\n", width.Widen.String(text))
 }
